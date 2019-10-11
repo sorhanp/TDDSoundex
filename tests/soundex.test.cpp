@@ -26,4 +26,8 @@ BOOST_FIXTURE_TEST_SUITE(SoundexEncoding, SoundexFixture)
         BOOST_REQUIRE_EQUAL(soundex.encode("I"), "I000");
     }
 
+    BOOST_AUTO_TEST_CASE(ReplacesConsonantsWithAppropriateDigits) {
+        BOOST_REQUIRE_EQUAL(soundex.encode("Ab"), "A100");
+    }
+
 BOOST_AUTO_TEST_SUITE_END()
