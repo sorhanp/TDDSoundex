@@ -39,4 +39,13 @@ BOOST_FIXTURE_TEST_SUITE(SoundexEncoding, SoundexFixture)
         BOOST_REQUIRE_EQUAL(soundex.encode("A#"), "A000");
     }
 
+    //Example of disabled test:
+    BOOST_AUTO_TEST_CASE(ReplacesMultipleConsonantsWithDigitsDisabled, *boost::unit_test::disabled()) {
+        BOOST_REQUIRE_EQUAL(soundex.encode("Acdl"), "A234");
+    }
+
+    BOOST_AUTO_TEST_CASE(ReplacesMultipleConsonantsWithDigits) {
+        BOOST_REQUIRE_EQUAL(soundex.encode("Acdl"), "A234");
+    }
+
 BOOST_AUTO_TEST_SUITE_END()
