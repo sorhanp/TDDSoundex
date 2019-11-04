@@ -76,4 +76,8 @@ BOOST_FIXTURE_TEST_SUITE(SoundexEncoding, SoundexFixture)
         BOOST_REQUIRE_EQUAL(soundex.encode("abcd").substr(0,1), "A");
     }
 
+    BOOST_AUTO_TEST_CASE(IgnoresCaseWhenEncodingConsonants) {
+        BOOST_REQUIRE_EQUAL(soundex.encode("BCDL"), soundex.encode("Bcdl"));
+    }
+
 BOOST_AUTO_TEST_SUITE_END()

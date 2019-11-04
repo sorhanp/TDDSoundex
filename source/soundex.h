@@ -20,8 +20,8 @@ public:
                 {'m', "5"}, {'n', "5"},
                 {'r', "6"}
         };
-        auto it = encodings.find(letter);
-        return it == encodings.end() ? "" : it->second;
+        auto it = encodings.find(lower(letter));
+        return it == encodings.end() ? NotADigit : it->second;
     }
 
 private:
@@ -46,8 +46,10 @@ private:
         std::string encoding;
         for (auto letter: word) {
             if (isComplete(encoding)) break;
-            if (encodedDigit(letter) != lastDigit(encoding))
-                encoding += encodedDigit(letter);
+
+            auto digit = encodedDigit(letter);
+            if (digit != NotADigit && digit != lastDigit(encoding))
+                encoding += digit;
         }
         return encoding;
     }
@@ -57,8 +59,12 @@ private:
     }
 
     std::string lastDigit(const std::string& encoding) const {
-        if (encoding.empty()) return "";
+        if (encoding.empty()) return NotADigit;
         return std::string(1, encoding.back());
+    }
+
+    char lower(char c) const {
+        return std::tolower(static_cast<unsigned char>(c));
     }
 
 private:
