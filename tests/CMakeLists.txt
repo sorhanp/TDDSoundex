@@ -4,7 +4,9 @@ set(SOUNDEX_TEST
 
 # Create list of unit tests, new unit test files need to be appended here
 set(UNIT_TEST_LIST
-        soundex)
+        soundex
+        charUtil
+        stringUtil)
 
 # Loop through UNIT_TEST_LIST and add test source -files to UNIT_TEST_SOURCE_LIST -list
 foreach(NAME IN LISTS UNIT_TEST_LIST)
