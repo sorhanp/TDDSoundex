@@ -83,4 +83,8 @@ BOOST_FIXTURE_TEST_SUITE(SoundexEncoding, SoundexFixture)
     BOOST_AUTO_TEST_CASE(CombinesDuplicateCodesWhen2ndLetterDuplicates1st) {
         BOOST_REQUIRE_EQUAL(soundex.encode("Bbcd"), "B230");
     }
+
+    BOOST_AUTO_TEST_CASE(DoesNotCombineDuplicateEncodingsSeparatedByVowels) {
+        BOOST_REQUIRE_EQUAL(soundex.encode("Jbob"), "J110");
+    }
 BOOST_AUTO_TEST_SUITE_END()
