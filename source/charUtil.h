@@ -10,8 +10,8 @@
 
 class charUtil {
 public:
-    static char lower(const char& c) {
-        return std::tolower(static_cast<unsigned char>(c));
+    static char lower(const char& letter) {
+        return std::tolower(static_cast<unsigned char>(letter));
     }
 
     static bool isVowel(const char& letter) {
