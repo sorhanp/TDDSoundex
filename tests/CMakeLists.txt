@@ -32,7 +32,7 @@ add_executable(${SOUNDEX_TEST}
 target_link_libraries(${SOUNDEX_TEST}
         PUBLIC soundex_targets)
 
-# Link boost and SDL2 libraries to executable
+# Link boost libraries to executable
 target_link_libraries(${SOUNDEX_TEST}
         PUBLIC ${Boost_LIBRARIES}
         )
